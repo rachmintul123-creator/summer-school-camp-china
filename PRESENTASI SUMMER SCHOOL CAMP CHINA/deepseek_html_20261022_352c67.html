@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+<title>Journey to China 2026 · Guangxi Normal University</title>
+<style>
+:root{
+  --bg:#eef2f7;
+  --bg-grad:radial-gradient(circle at 12% 8%, #f4f7fb 0%, #e7edf4 100%);
+  --card:#ffffff;
+  --primary:#1565C0;
+  --primary-deep:#0D3C66;
+  --primary-light:#3E8AD8;
+  --accent:#E08A1E;
+  --gold:#C5A46D;
+  --text:#1f2d3d;
+  --text-soft:#46586b;
+  --line:#e2e8f0;
+  --shadow:0 14px 30px -16px rgba(13,60,102,.28);
+  --radius:18px;
+  --radius-sm:12px;
+  --red:#B23A3A; --red-deep:#8A2B2B;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+html,body{height:100%}
+body{background:var(--bg-grad);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.layout{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{width:260px;flex-shrink:0;background:linear-gradient(180deg,var(--primary-deep),var(--primary));
+  color:#fff;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+  box-shadow:4px 0 24px -12px rgba(0,0,0,.4);z-index:20}
+.sidebar .brand{padding:20px 18px 14px;border-bottom:1px solid rgba(255,255,255,.12)}
+.sidebar .brand .logo{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:800}
+.sidebar .brand .logo .dot{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--red),var(--red-deep));
+  display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:0 6px 14px -4px rgba(178,58,58,.7)}
+.sidebar .brand .sub{margin-top:6px;font-size:.7rem;opacity:.78;line-height:1.4}
+.nav{flex:1;overflow-y:auto;padding:12px 10px}
+.nav-item{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:none;background:transparent;
+  color:#e7eef6;padding:9px 12px;border-radius:10px;margin-bottom:3px;cursor:pointer;font-size:.8rem;font-weight:600;
+  transition:.2s;position:relative}
+.nav-item .ico{width:26px;height:26px;border-radius:8px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.nav-item:hover{background:rgba(255,255,255,.1);transform:translateX(2px)}
+.nav-item.active{background:#fff;color:var(--primary-deep);box-shadow:0 8px 20px -8px rgba(0,0,0,.5)}
+.nav-item.active .ico{background:var(--accent);color:#fff}
+.nav-item.active::before{content:"";position:absolute;left:0;top:18%;bottom:18%;width:5px;border-radius:0 4px 4px 0;background:var(--accent)}
+.sidebar .foot{padding:12px 18px;font-size:.65rem;opacity:.7;border-top:1px solid rgba(255,255,255,.12);line-height:1.5}
+.menu-toggle{display:none;position:fixed;top:14px;left:14px;z-index:40;width:44px;height:44px;border-radius:12px;border:none;
+  background:var(--primary);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 8px 18px -6px rgba(0,0,0,.5)}
+
+/* CONTENT — dirancang untuk layar laptop 1366x768 / 1920x1080 */
+.content{flex:1;min-width:0;overflow-y:auto;height:100vh;padding:22px 28px 40px;scroll-behavior:smooth}
+.module{display:none;animation:fade .5s ease}
+.module.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.page-head{margin-bottom:16px}
+.page-head h1{font-size:1.4rem;font-weight:800;color:var(--primary-deep);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.page-head .lead{margin-top:6px;color:var(--text-soft);font-size:.88rem;max-width:900px}
+.breadcrumb{font-size:.72rem;color:#92a3b5;margin-bottom:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.breadcrumb .dur{background:var(--card);border:1px solid var(--line);padding:2px 10px;border-radius:100px;font-weight:700;font-size:.66rem;color:var(--primary-deep)}
+
+.card{background:var(--card);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,.03);margin-bottom:16px;position:relative;overflow:hidden}
+.card h2{font-size:1.25rem;color:var(--primary);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.card h3{font-size:.98rem;color:var(--primary-deep);margin:14px 0 8px;font-weight:700}
+.card p{margin-bottom:8px;color:var(--text-soft);font-size:.88rem}
+.card p strong,.card li strong{color:var(--text)}
+.quote{border-left:4px solid var(--accent);background:#fff8ef;padding:10px 14px;border-radius:0 10px 10px 0;margin:10px 0;color:#7a5320;font-size:.86rem}
+.note-box{background:#f3f8ff;border:1px solid #d6e6fb;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:.86rem}
+.note-box .t{font-weight:800;color:var(--primary);display:block;margin-bottom:3px;font-size:.82rem}
+.warn-box{background:#fff3f0;border:1px solid #f5c6bc;border-radius:12px;padding:10px 14px;margin:10px 0;font-size:.82rem;color:#7a2318}
+.warn-box .t{font-weight:800;color:var(--red);display:block;margin-bottom:3px;font-size:.8rem}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:1100px){.grid-3,.grid-4{grid-template-columns:1fr 1fr}.grid-2{grid-template-columns:1fr}}
+@media(max-width:700px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* Badges */
+.badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.66rem;font-weight:700;margin:2px 4px 2px 0;vertical-align:middle;line-height:1.6;letter-spacing:.02em}
+.b-exp{background:#E6F4EA;color:#1E6B3A;border:1.5px solid #A8D5B5}
+.b-prog{background:#EAF1F8;color:#2A5C8A;border:1.5px solid #B8CCE0}
+.b-lit{background:#FDF3E3;color:#8A5C1A;border:1.5px solid #E8C98A}
+.b-ver{background:#FDE8E8;color:#8A2B2B;border:1.5px solid #E8A8A8}
+
+/* Points */
+.points{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.point{display:flex;gap:10px;align-items:flex-start;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.86rem;line-height:1.5;color:var(--text-soft);transition:.2s}
+.point:hover{transform:translateX(3px);box-shadow:0 6px 14px -8px rgba(13,60,102,.25);background:#fff}
+.point .num{flex-shrink:0;width:24px;height:24px;border-radius:7px;background:var(--primary-deep);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800}
+.point.red .num{background:var(--red)}
+.point.gold .num{background:var(--accent)}
+.point.green .num{background:#2E7D32}
+.point.blue .num{background:var(--primary)}
+
+/* ============================================================
+   COVER — Judul full di atas, foto besar di bawah
+   ============================================================ */
+.cover-hero{
+  background:linear-gradient(135deg, #FBF9F4 0%, #F7F4ED 55%, #F2EDE2 100%);
+  border-radius:var(--radius);
+  padding:32px 36px;
+  color:var(--primary-deep);
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--line);
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+.cover-hero::before{content:'';position:absolute;top:-30%;right:-15%;width:60%;height:120%;
+  background:radial-gradient(circle, rgba(197,164,109,0.22) 0%, transparent 70%);pointer-events:none}
+.cover-hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:50%;height:80%;
+  background:radial-gradient(circle, rgba(178,58,58,0.08) 0%, transparent 70%);pointer-events:none}
+
+.cover-content{position:relative;z-index:2;display:flex;flex-direction:column;min-width:0}
+.cover-tag{display:inline-block;background:var(--red);color:#fff;font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;padding:5px 14px;border-radius:100px;margin-bottom:14px;width:fit-content}
+.cover-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;line-height:1.05;letter-spacing:-.02em;max-width:100%;word-wrap:break-word;color:var(--primary-deep)}
+.cover-title .accent{color:var(--red)}
+.cover-subtitle{font-size:clamp(.88rem,1.2vw,1rem);color:var(--text-soft);margin-top:12px;line-height:1.4;font-style:italic}
+.cover-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px}
+.cover-meta-item{display:flex;flex-direction:column;gap:2px}
+.cover-meta-item .label{font-size:.6rem;color:#8a96a8;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.cover-meta-item .value{font-size:.8rem;color:var(--primary-deep);font-weight:600}
+
+/* Foto cover — besar, landscape lebar di bawah judul */
+.cover-photo{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/7;
+  max-height:380px;
+  border-radius:16px;
+  overflow:hidden;
+  border:2px solid var(--gold);
+  z-index:2;
+  background:#F2EDE2;
+  display:flex;align-items:center;justify-content:center;
+  transition:.2s;
+}
+.cover-photo:hover{background:#EAE3D4;border-color:var(--red)}
+.cover-photo .ph{text-align:center;color:#8a96a8;padding:16px;font-size:.8rem;line-height:1.4}
+.cover-photo .ph .ico{font-size:2.4rem;opacity:.5;margin-bottom:6px}
+.cover-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.cover-photo.has-photo{border-style:solid;border-color:var(--gold);background:#f0f0f0}
+.cover-photo.has-photo .ph{display:none}
+
+/* Timeline */
+.timeline{position:relative;padding-left:20px}
+.timeline::before{content:'';position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:linear-gradient(var(--gold),var(--red))}
+.timeline-item{position:relative;padding-bottom:12px}
+.timeline-item::before{content:'';position:absolute;left:-18px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 2px var(--red)}
+.tl-date{font-size:.66rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.06em}
+.tl-text{font-size:.82rem;color:var(--primary-deep);margin-top:2px}
+
+/* ============================================================
+   PHOTO SLOT — seragam 4:3 default
+   ============================================================ */
+.photo-slot{
+  position:relative;
+  border:2px dashed #b9d3ee;
+  border-radius:var(--radius-sm);
+  background:#f3f8ff;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:14px;
+  text-align:center;
+  transition:.2s;
+  aspect-ratio:4/3;
+  gap:6px;
+  overflow:hidden;
+  width:100%;
+}
+.photo-slot:hover{border-color:var(--primary);background:#e4effa}
+.photo-slot .ph-icon{font-size:1.6rem;opacity:.4}
+.photo-slot .ph-text{font-size:.74rem;color:var(--text-soft);line-height:1.35}
+.photo-slot .ph-file{display:inline-block;font-size:.6rem;color:#92a3b5;margin-top:3px;font-family:monospace;background:#fff;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.photo-slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1}
+.photo-slot.has-photo{border-style:solid;border-color:var(--line);background:#f0f2f5}
+.photo-slot.has-photo .ph-icon,.photo-slot.has-photo .ph-text,.photo-slot.has-photo .ph-file{display:none}
+
+/* Slot 9:16 — portrait khusus untuk kelas & penerjemah */
+.photo-slot.portrait-9-16{
+  aspect-ratio:9/16;
+}
+
+/* Gallery grid — 4 kolom rapat */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:8px;
+}
+@media(max-width:1100px){ .gallery-grid{grid-template-columns:repeat(3, 1fr)} }
+@media(max-width:800px){ .gallery-grid{grid-template-columns:repeat(2, 1fr)} }
+
+/* Gallery 3 kolom full width — untuk AI Ecosystem */
+.gallery-3-full{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  width:100%;
+}
+.gallery-3-full .photo-slot{
+  aspect-ratio:16/10;
+  min-height:0;
+}
+@media(max-width:800px){
+  .gallery-3-full{grid-template-columns:1fr}
+}
+
+/* Grid foto penuh untuk math & class — foto isi layar */
+.grid-photo-full{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  width:100%;
+}
+.grid-photo-full .photo-slot{
+  aspect-ratio:4/3;
+}
+@media(max-width:800px){
+  .grid-photo-full{grid-template-columns:1fr 1fr}
+}
+
+/* Grid 2 foto untuk classroom */
+.grid-photo-2{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:10px;
+  width:100%;
+}
+.grid-photo-2 .photo-slot{
+  aspect-ratio:4/3;
+}
+@media(max-width:600px){
+  .grid-photo-2{grid-template-columns:1fr}
+}
+
+/* School card */
+.school-card{background:#fff;border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 6px 16px -8px rgba(13,60,102,.2);border:1px solid var(--line);display:flex;flex-direction:column;transition:.2s}
+.school-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px -8px rgba(13,60,102,.3)}
+.school-card .photo-slot{border-radius:0;border:none;border-bottom:2px dashed #b9d3ee;aspect-ratio:4/3}
+.school-card .sc-body{padding:12px 14px;display:flex;flex-direction:column;gap:3px;flex:1}
+.school-card .sc-name{font-size:.88rem;font-weight:800;color:var(--primary-deep)}
+.school-card .sc-meta{font-size:.68rem;color:var(--text-soft);margin-bottom:3px}
+.school-card .sc-desc{font-size:.74rem;color:var(--text-soft);line-height:1.45}
+
+/* Mini cards */
+.mini-card{background:#f8fafc;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;border-top:4px solid var(--primary-deep);transition:.2s}
+.mini-card:hover{transform:translateY(-3px);box-shadow:0 10px 22px -10px rgba(13,60,102,.3)}
+.mini-card.red{border-top-color:var(--red)}
+.mini-card.gold{border-top-color:var(--accent)}
+.mini-card.green{border-top-color:#2E7D32}
+.mini-card.blue{border-top-color:var(--primary)}
+.mini-card h4{font-size:.88rem;color:var(--primary-deep);margin-bottom:5px;font-weight:800;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.mini-card p{font-size:.78rem;color:var(--text-soft);line-height:1.5;margin:0}
+
+/* Presenter Notes */
+.notes-toggle{margin-top:14px;display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.btn-notes{background:#f0f7ff;border:1px solid #b9d3ee;padding:7px 14px;border-radius:40px;font-size:.76rem;font-weight:700;color:var(--primary);cursor:pointer;display:flex;align-items:center;gap:6px;transition:.2s}
+.btn-notes:hover{background:#d9e8fc}
+.speaker-notes{margin-top:12px;background:#fff9e6;border-left:5px solid #f1c40f;border-radius:14px;padding:14px 18px;font-size:.84rem;line-height:1.65;color:#4a3b1a;display:none}
+.speaker-notes.show{display:block;animation:fade .25s ease}
+.speaker-notes .nsec{margin-bottom:10px}
+.speaker-notes .nsec:last-child{margin-bottom:0}
+.speaker-notes .nlab{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:#f1c40f;color:#7a5c00;padding:2px 8px;border-radius:4px;margin-bottom:4px}
+.speaker-notes .nsec p{font-size:.84rem;line-height:1.65;color:#4a3b1a;margin-bottom:3px}
+.speaker-notes .nsec ul{padding-left:18px;margin:0}
+.speaker-notes .nsec li{font-size:.82rem;line-height:1.55;color:#4a3b1a;margin-bottom:3px}
+.speaker-notes .nsec.emphasis{background:#fff3c2;border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 8px 8px 0}
+.speaker-notes .nsec.transition{background:#e8f0f8;border-left:3px solid var(--primary);padding:8px 12px;border-radius:0 8px 8px 0}
+.speaker-notes .nsec.transition .nlab{background:var(--primary);color:#fff}
+.speaker-notes .nsec.emphasis .nlab{background:var(--accent);color:#fff}
+
+/* Pager */
+.pager{display:flex;justify-content:space-between;gap:12px;margin-top:12px;flex-wrap:wrap}
+.pager button{flex:1;min-width:120px;padding:10px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer;font-weight:700;color:var(--primary);transition:.2s;font-size:.84rem}
+.pager button:hover{background:var(--primary);color:#fff}
+.pager button:disabled{opacity:.35;cursor:not-allowed;background:#fff;color:var(--text-soft)}
+
+/* Progress bar & footer */
+.progress-bar{height:5px;background:#e4effa;border-radius:10px;margin-top:14px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--primary-deep),var(--primary));border-radius:10px;transition:width .3s ease}
+.topbtn{position:fixed;bottom:22px;right:18px;z-index:55;width:48px;height:48px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 10px 24px -8px rgba(13,60,102,.55);opacity:0;pointer-events:none;transition:.25s}
+.topbtn.show{opacity:1;pointer-events:auto}
+.mnav{display:none;position:fixed;top:0;left:0;right:0;z-index:45;background:linear-gradient(90deg,var(--primary-deep),var(--primary));padding:6px 8px 6px 54px;gap:6px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;box-shadow:0 6px 18px -8px rgba(0,0,0,.4)}
+.mnav::-webkit-scrollbar{display:none}
+.mnav .mnav-item{display:inline-block;border:none;background:rgba(255,255,255,.16);color:#fff;padding:6px 10px;border-radius:14px;font-size:.72rem;font-weight:700;cursor:pointer;flex-shrink:0;line-height:1.4}
+.mnav .mnav-item.on{background:#fff;color:var(--primary-deep)}
+.footer{text-align:center;margin-top:24px;padding:16px;color:#7c8da0;font-size:.76rem;border-top:1px solid var(--line)}
+
+/* Presenter mode toggle */
+.pmode-btn{position:fixed;top:12px;right:12px;z-index:60;background:var(--primary);color:#fff;border:none;padding:7px 14px;border-radius:100px;font-weight:700;font-size:.74rem;cursor:pointer;box-shadow:0 8px 20px -8px rgba(13,60,102,.5);letter-spacing:.02em}
+.pmode-btn.active{background:var(--accent)}
+
+@media(max-width:980px){
+  .mnav{display:flex}
+  .menu-toggle{display:block;width:42px;height:42px;top:8px;left:8px;font-size:1.2rem;z-index:70}
+  .sidebar{position:fixed;left:0;top:0;transform:translateX(-100%);transition:.3s;width:240px;height:100vh;z-index:75}
+  .sidebar.open{transform:none}
+  .content{height:auto;padding:56px 12px 50px;-webkit-overflow-scrolling:touch}
+  body{font-size:15px}
+  .page-head h1{font-size:1.15rem}
+  .card{padding:14px 12px;overflow-x:auto}
+  .card h2{font-size:1.1rem}
+  .pmode-btn{top:50px;right:8px;font-size:.68rem;padding:5px 10px}
+}
+/* ============================================================
+   VIDEO SLOT — video player dengan placeholder
+   ============================================================ */
+.video-slot{
+  position:relative;
+  border:2px dashed #b9d3ee;
+  border-radius:var(--radius-sm);
+  background:#f3f8ff;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:14px;
+  text-align:center;
+  transition:.2s;
+  aspect-ratio:4/3;
+  gap:6px;
+  overflow:hidden;
+  width:100%;
+}
+.video-slot:hover{border-color:var(--primary);background:#e4effa}
+.video-slot .ph-icon{font-size:1.8rem;opacity:.4}
+.video-slot .ph-text{font-size:.74rem;color:var(--text-soft);line-height:1.35}
+.video-slot .ph-file{display:inline-block;font-size:.6rem;color:#92a3b5;margin-top:3px;font-family:monospace;background:#fff;padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+.video-slot video{
+  width:100%;height:100%;
+  object-fit:cover;
+  position:absolute;inset:0;z-index:1;
+  background:#000;
+  border-radius:calc(var(--radius-sm) - 2px);
+}
+.video-slot.has-video{
+  border-style:solid;
+  border-color:var(--line);
+  background:#000;
+  padding:0;
+}
+.video-slot.has-video .ph-icon,
+.video-slot.has-video .ph-text{display:none}
+
+/* Portrait 9:16 untuk video */
+.video-slot.portrait-9-16{
+  aspect-ratio:9/16;
+}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+<button class="pmode-btn" id="pmodeBtn" onclick="togglePresenterMode()">🎭 Mode Presenter</button>
+
+<div class="mnav" id="mnav">
+  <button class="mnav-item on" data-mod="cover" onclick="go('cover')">Cover</button>
+  <button class="mnav-item" data-mod="why" onclick="go('why')">Why</button>
+  <button class="mnav-item" data-mod="days" onclick="go('days')">17 Days</button>
+  <button class="mnav-item" data-mod="lang" onclick="go('lang')">Languages</button>
+  <button class="mnav-item" data-mod="eco" onclick="go('eco')">AI Ecosystem</button>
+  <button class="mnav-item" data-mod="math" onclick="go('math')">AI Math</button>
+  <button class="mnav-item" data-mod="practice" onclick="go('practice')">Practice</button>
+  <button class="mnav-item" data-mod="schools" onclick="go('schools')">3 Schools</button>
+  <button class="mnav-item" data-mod="class" onclick="go('class')">Classroom</button>
+  <button class="mnav-item" data-mod="lesson" onclick="go('lesson')">Lesson Study</button>
+  <button class="mnav-item" data-mod="order" onclick="go('order')">Order</button>
+  <button class="mnav-item" data-mod="indo" onclick="go('indo')">Indonesia</button>
+  <button class="mnav-item" data-mod="ai" onclick="go('ai')">AI Thinking</button>
+  <button class="mnav-item" data-mod="reflect" onclick="go('reflect')">Reflection</button>
+  <button class="mnav-item" data-mod="closing" onclick="go('closing')">Closing</button>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo"><span class="dot">✦</span><span>Journey to China</span></div>
+      <div class="sub">Summer School Camp · Guangxi Normal University · 25 Agu – 10 Sep 2026</div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item active" data-mod="cover" onclick="go('cover')"><span class="ico">🏠</span><span>Cover</span></button>
+      <button class="nav-item" data-mod="why" onclick="go('why')"><span class="ico">🎯</span><span>Why China</span></button>
+      <button class="nav-item" data-mod="days" onclick="go('days')"><span class="ico">📅</span><span>17 Days</span></button>
+      <button class="nav-item" data-mod="lang" onclick="go('lang')"><span class="ico">🌐</span><span>Languages</span></button>
+      <button class="nav-item" data-mod="eco" onclick="go('eco')"><span class="ico">🤖</span><span>AI Ecosystem</span></button>
+      <button class="nav-item" data-mod="math" onclick="go('math')"><span class="ico">📐</span><span>AI Math Education</span></button>
+      <button class="nav-item" data-mod="practice" onclick="go('practice')"><span class="ico">🎓</span><span>AI in Practice</span></button>
+      <button class="nav-item" data-mod="schools" onclick="go('schools')"><span class="ico">🏫</span><span>3 Schools</span></button>
+      <button class="nav-item" data-mod="class" onclick="go('class')"><span class="ico">📚</span><span>Classroom</span></button>
+      <button class="nav-item" data-mod="lesson" onclick="go('lesson')"><span class="ico">🤝</span><span>Lesson Study</span></button>
+      <button class="nav-item" data-mod="order" onclick="go('order')"><span class="ico">🔍</span><span>Order & Learning</span></button>
+      <button class="nav-item" data-mod="indo" onclick="go('indo')"><span class="ico">🇮🇩</span><span>For Indonesia</span></button>
+      <button class="nav-item" data-mod="ai" onclick="go('ai')"><span class="ico">💡</span><span>AI & Thinking</span></button>
+      <button class="nav-item" data-mod="reflect" onclick="go('reflect')"><span class="ico">🧑‍🏫</span><span>My Reflection</span></button>
+      <button class="nav-item" data-mod="closing" onclick="go('closing')"><span class="ico">🎓</span><span>Takeaways</span></button>
+    </nav>
+    <div class="foot">Journey to China 2026 · Guangxi Normal University · 15 slides</div>
+  </aside>
+
+  <main class="content" id="content">
+
+    <!-- ===== SLIDE 1: COVER — judul full di atas, foto besar di bawah ===== -->
+    <section class="module active" id="sec-cover">
+      <div class="breadcrumb"><span>Cover</span> <span class="dur">⏱ ≈ 1 menit</span></div>
+      <div class="cover-hero">
+        <div class="cover-content">
+          <span class="cover-tag">SUMMER SCHOOL CAMP · 2026</span>
+          <h2 class="cover-title">Journey to China <span class="accent">2026</span></h2>
+          <p class="cover-subtitle">Learning, AI, and Reflections on Education — Refleksi Pengalaman Summer School, Artificial Intelligence, dan Observasi Pembelajaran di China</p>
+          <div class="cover-meta">
+            <div class="cover-meta-item"><span class="label">Program</span><span class="value">Summer School Camp Scholarship</span></div>
+            <div class="cover-meta-item"><span class="label">Institusi</span><span class="value">Guangxi Normal University</span></div>
+            <div class="cover-meta-item"><span class="label">Durasi</span><span class="value">17 hari · 25 Agu – 10 Sep 2026</span></div>
+            <div class="cover-meta-item"><span class="label">Presenter</span><span class="value">Rachmita Aulia Mekatronika Arifin, S.Pd</span></div>
+          </div>
+        </div>
+        <div class="cover-photo photo-slot" data-photo="cover-main">
+          <div class="ph">
+            <div class="ico">📷</div>
+            <div>Foto utama perjalanan / kampus</div>
+            <div style="font-size:.6rem;opacity:.6;margin-top:6px;font-family:monospace">dokumentasi/cover-main.jpg</div>
+          </div>
+        </div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Bapak/Ibu guru yang saya hormati, hari ini saya ingin berbagi pengalaman akademik saya selama 17 hari mengikuti Summer School Camp di Guangxi Normal University, China.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Program: Summer School Camp Scholarship di Guangxi Normal University.</li><li>Tanggal: 25 Agustus – 10 September 2026 (17 hari).</li><li>Pendanaan: RKI 2026 bersama dosen.</li><li>Fokus: AI, pendidikan, dan budaya.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Perjalanan ini bukan wisata, melainkan upaya belajar dan merefleksikan praktik pendidikan.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Mari kita mulai dari pertanyaan: mengapa saya berangkat ke China?</p></div>
+      </div>
+      <div class="pager">
+        <button disabled>← Sebelumnya</button>
+        <button onclick="go('why')">Berikutnya: Why China →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 2: WHY CHINA ===== -->
+    <section class="module" id="sec-why">
+      <div class="breadcrumb"><span>Why I Went to China</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🎯 Why I Went to China</h1>
+        <div class="lead">Latar belakang program, kolaborasi departemen, pendanaan RKI 2026, serta tujuan akademik.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="points">
+            <div class="point"><span class="num">1</span><span><strong>Summer School Camp Scholarship</strong> di Guangxi Normal University.</span></div>
+            <div class="point"><span class="num">2</span><span>Program kolaborasi departemen saya dengan Guangxi Normal University.</span></div>
+            <div class="point"><span class="num">3</span><span>Pendanaan: <strong>RKI 2026</strong> bersama dosen menanggung paspor, visa, dan tiket pesawat.</span></div>
+            <div class="point"><span class="num">4</span><span>Tujuan: memperoleh pengetahuan yang dapat diimplementasikan di Indonesia, khususnya terkait penelitian AI.</span></div>
+          </div>
+          <div class="photo-slot" data-photo="why-doc">
+            <span class="ph-icon">📷</span>
+            <span class="ph-text">Foto pembukaan program / sertifikat<span class="ph-file">dokumentasi/why-doc.jpg</span></span>
+          </div>
+        </div>
+        <div class="quote"><strong>Pesan inti:</strong> ini perjalanan akademik untuk belajar — bukan wisata, bukan sekadar kunjungan.</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span><span class="badge b-prog">Info Program</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Saya berangkat melalui Summer School Camp Scholarship yang diselenggarakan oleh Guangxi Normal University bersama departemen saya.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Peserta dari berbagai negara dan bidang keilmuan, termasuk matematika.</li><li>Pendanaan RKI 2026 bersama dosen menanggung paspor, visa, dan tiket pesawat.</li><li>Tujuan utama: memperoleh pengetahuan yang bisa diimplementasikan di Indonesia.</li><li>Fokus penelitian saya: AI untuk media pembelajaran.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Perjalanan ini punya tujuan akademik yang jelas dan bukan sekadar kunjungan.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Sekarang, mari saya bawa Bapak/Ibu melihat linimasa 17 hari kegiatan.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('cover')">← Cover</button>
+        <button onclick="go('days')">Berikutnya: 17 Days →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 3: 17 DAYS ===== -->
+    <section class="module" id="sec-days">
+      <div class="breadcrumb"><span>17 Days of Learning</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>📅 17 Days of Learning</h1>
+        <div class="lead">Linimasa perjalanan 25 Agustus–10 September 2026 dan tiga fokus kegiatan: AI, pendidikan, dan budaya.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div>
+            <div class="timeline">
+              <div class="timeline-item"><div class="tl-date">24 Agustus 2026</div><div class="tl-text">Keberangkatan dari Indonesia menuju China</div></div>
+              <div class="timeline-item"><div class="tl-date">25 Agustus</div><div class="tl-text">Orientasi program dan sesi perkuliahan awal di Guangxi Normal University</div></div>
+              <div class="timeline-item"><div class="tl-date">29 Agu – 5 Sep</div><div class="tl-text">Perkuliahan AI, eksplorasi media pembelajaran, budaya China</div></div>
+              <div class="timeline-item"><div class="tl-date">6–8 September</div><div class="tl-text">Observasi sekolah — 2 SD dan 1 SMP</div></div>
+              <div class="timeline-item"><div class="tl-date">9–10 September</div><div class="tl-text">Refleksi akhir, presentasi kelompok, kepulangan</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="mini-card red" style="margin-bottom:8px"><h4>🤖 AI</h4><p>Perkuliahan, produk AI China, media pembelajaran, refleksi etika penggunaan.</p></div>
+            <div class="mini-card gold" style="margin-bottom:8px"><h4>🏫 Pendidikan</h4><p>Pembelajaran di SD–SMP, observasi kelas, lesson study, kolaborasi guru.</p></div>
+            <div class="mini-card blue"><h4>🇨🇳 Budaya</h4><p>Konteks sosial dan budaya yang membentuk praktik pendidikan.</p></div>
+          </div>
+        </div>
+        <h3 style="margin-top:14px">📸 Dokumentasi Perjalanan</h3>
+        <div class="gallery-grid">
+          <div class="photo-slot" data-photo="day-1">
+            <span class="ph-icon">✈️</span>
+            <span class="ph-text">Keberangkatan<span class="ph-file">day-1.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="day-2">
+            <span class="ph-icon">🏛️</span>
+            <span class="ph-text">Kampus GXNU<span class="ph-file">day-2.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="day-3">
+            <span class="ph-icon">🎓</span>
+            <span class="ph-text">Orientasi<span class="ph-file">day-3.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="day-4">
+            <span class="ph-icon">📚</span>
+            <span class="ph-text">Perkuliahan<span class="ph-file">day-4.jpg</span></span>
+          </div>
+        </div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span><span class="badge b-ver">Perlu Verifikasi Detail</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Selama 17 hari, kegiatan saya dibagi ke dalam tiga fokus besar: AI, pendidikan, dan budaya.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>25 Agustus: keberangkatan dari Indonesia.</li><li>26–28 Agustus: orientasi dan sesi perkuliahan awal di GXNU.</li><li>29 Agustus – 5 September: perkuliahan AI dan eksplorasi media pembelajaran.</li><li>6–8 September: observasi 2 SD dan 1 SMP.</li><li>9–10 September: refleksi akhir dan kepulangan.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Setiap fase punya tujuan: membangun pengetahuan, melihat praktik, lalu merefleksikan.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Salah satu pengalaman paling menantang adalah belajar lintas bahasa dan budaya.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('why')">← Why China</button>
+        <button onclick="go('lang')">Berikutnya: Languages →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 4: LANGUAGES — foto 9:16 portrait ===== -->
+    <section class="module" id="sec-lang">
+      <div class="breadcrumb"><span>Learning Across Languages</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🌐 Learning Across Languages and Cultures</h1>
+        <div class="lead">Pengalaman perkuliahan internasional, hambatan bahasa, dan bantuan perangkat penerjemah.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="points">
+            <div class="point"><span class="num">1</span><span>Tidak semua dosen dan mahasiswa China menguasai bahasa Inggris.</span></div>
+            <div class="point"><span class="num">2</span><span>Peserta Indonesia tidak memiliki bekal bahasa Mandarin.</span></div>
+            <div class="point"><span class="num">3</span><span>Layar dan perangkat penerjemah membantu komunikasi.</span></div>
+            <div class="point"><span class="num">4</span><span>Proses dan cara belajar berbeda, tetapi tujuan tetap sama: menyelesaikan masalah.</span></div>
+          </div>
+          <div class="grid-2" style="gap:8px">
+            <div class="photo-slot portrait-9-16" data-photo="lang-1">
+              <span class="ph-icon">📷</span>
+              <span class="ph-text">Suasana kelas<span class="ph-file">lang-1.jpg</span></span>
+            </div>
+            <div class="video-slot portrait-9-16" data-video="lang-2">
+  <span class="ph-icon">🎬</span>
+  <span class="ph-text">Layar penerjemah — video<span class="ph-file">lang-2.mp4 / lang-2.mov</span></span>
+</div>
+          </div>
+        </div>
+        <div class="quote"><strong>Refleksi:</strong> perbedaan pendekatan tidak selalu berarti salah satu harus menggantikan yang lain.</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Bapak/Ibu, tantangan pertama yang saya hadapi bukan materi, melainkan bahasa.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Tidak semua dosen dan mahasiswa China menguasai bahasa Inggris.</li><li>Saya dan peserta Indonesia tidak memiliki bekal bahasa Mandarin.</li><li>Layar dan perangkat penerjemah membantu komunikasi.</li><li>Meskipun cara belajar berbeda, tujuannya sama: menyelesaikan masalah.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Perbedaan pendekatan tidak berarti salah satu harus menggantikan yang lain.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Dari perkuliahan, saya berkenalan dengan ekosistem AI yang digunakan di China.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('days')">← 17 Days</button>
+        <button onclick="go('eco')">Berikutnya: AI Ecosystem →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 5: AI ECOSYSTEM — 3 foto full width ===== -->
+    <section class="module" id="sec-eco">
+      <div class="breadcrumb"><span>Discovering China's AI Ecosystem</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🤖 Discovering China's AI Ecosystem</h1>
+        <div class="lead">Pengalaman mengenal AI yang digunakan di China, termasuk Doubao dan DeepSeek. Sertakan catatan mengenai perbedaan akses teknologi.</div>
+      </div>
+      <div class="card">
+        <div class="grid-3" style="margin-bottom:14px">
+          <div class="mini-card red"><h4>Doubao</h4><p>Salah satu produk AI yang saya perkenalkan selama program.</p></div>
+          <div class="mini-card gold"><h4>DeepSeek</h4><p>Produk AI lain yang saya amati penggunaannya dalam konteks pembelajaran.</p></div>
+          <div class="mini-card blue"><h4>Perbedaan Akses</h4><p>Layanan yang biasa saya gunakan di Indonesia terbatas karena perbedaan jaringan dan persyaratan akses lokal.</p></div>
+        </div>
+        <h3>📸 Dokumentasi Penggunaan AI</h3>
+        <div class="gallery-3-full">
+          <div class="photo-slot" data-photo="eco-1">
+            <span class="ph-icon">🤖</span>
+            <span class="ph-text">Demo Doubao<span class="ph-file">eco-1.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="eco-2">
+            <span class="ph-icon">💬</span>
+            <span class="ph-text">DeepSeek<span class="ph-file">eco-2.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="eco-3">
+            <span class="ph-icon">🌐</span>
+            <span class="ph-text">Akses terbatas<span class="ph-file">eco-3.jpg</span></span>
+          </div>
+        </div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span><span class="badge b-ver">Perlu Verifikasi</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Di China, saya diperkenalkan dengan produk AI yang berbeda dari yang biasa saya gunakan di Indonesia.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Doubao dan DeepSeek adalah dua produk AI yang saya amati.</li><li>Saya melihat perbedaan akses teknologi dan ekosistem AI antara China dan Indonesia.</li><li>Layanan seperti WhatsApp sulit diakses karena perbedaan jaringan dan persyaratan lokal.</li><li>Ejaan dan status resmi produk perlu diverifikasi.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Yang saya sampaikan adalah pengalaman terbatas, bukan klaim tentang ekosistem AI nasional.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Selanjutnya, saya ingin menunjukkan bagaimana AI digunakan untuk pembelajaran matematika.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('lang')">← Languages</button>
+        <button onclick="go('math')">Berikutnya: AI Math →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 6: AI MATH — Rui Xiao Phi + Mathematics Course Maker Space ===== -->
+    <section class="module" id="sec-math">
+      <div class="breadcrumb"><span>AI for Mathematics Education</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>📐 AI for Mathematics Education</h1>
+        <div class="lead">Produk dan media pembelajaran yang saya pelajari di Guangxi Normal University.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div>
+            <div class="mini-card red" style="margin-bottom:10px">
+              <h4>🎬 Rui Xiao Phi </h4>
+              <p>Aplikasi pintar berbasis AI dan platform pembelajaran interaktif yang dirancang untuk membantu transisi pendidikan matematika siswa dari jenjang SD ke SMP melalui integrasi teknologi, bahan ajar digital, serta kegiatan kolaborasi sosial</p>
+            </div>
+            <div class="mini-card gold">
+              <h4>🛠️ Mathematics Course Maker Space </h4>
+              <p> Inisiatif akademis dan penelitian ini berfokus pada modernisasi pendidikan matematika. Inisiatif ini mengintegrasikan teknologi interaktif, pemecahan masalah kolaboratif (CPS), dan lingkungan perangkat lunak dinamis (seperti GeoGebra) ke dalam kurikulum matematika.</p>
+            </div>
+          </div>
+          <div class="photo-slot" data-photo="math-1">
+            <span class="ph-icon">🎥</span>
+            <span class="ph-text">Media AI / Mathematics Course Maker Space<span class="ph-file">math-1.jpg</span></span>
+          </div>
+        </div>
+        <h3 style="margin-top:14px">📸 Galeri Media AI</h3>
+        <div class="grid-photo-full">
+          <div class="photo-slot" data-photo="math-2">
+            <span class="ph-icon">🎬</span>
+            <span class="ph-text">Rui Xiao Phi<span class="ph-file">math-2.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="math-3">
+            <span class="ph-icon">🛠️</span>
+            <span class="ph-text">Mathematics Course Maker Space<span class="ph-file">math-3.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="math-4">
+            <span class="ph-icon">📐</span>
+            <span class="ph-text">Materi matematika<span class="ph-file">math-4.jpg</span></span>
+          </div>
+        </div>
+        <div class="warn-box" style="margin-top:10px"><span class="t">⚠️ Akurasi</span>Saya tidak mengklaim fitur, lembaga pengembang, hasil evaluasi, atau kebijakan penggunaan AI tanpa sumber yang valid.</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span><span class="badge b-ver">Perlu Verifikasi</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Sebagai guru matematika, hal yang paling saya nantikan adalah melihat bagaimana AI digunakan dalam pembelajaran matematika.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Saya melihat produk bernama Rui Xiao Phi — nama dan fitur perlu diverifikasi.</li><li>Ada inisiatif Mathematics Course Maker Space yang menurut penjelasan saya dikembangkan dengan keterlibatan Prof. Tang dan mahasiswa.</li><li>Saya mendapatkan beberapa materi pembelajaran yang bisa dibawa pulang.</li><li>Saya tidak mengklaim fitur, lembaga pengembang, atau kebijakan penggunaan tanpa sumber valid.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Yang penting bukan nama produknya, melainkan gagasan di balik pemanfaatan AI untuk belajar.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Tapi bagaimana AI benar-benar dipakai di ruang kelas? Mari kita lihat.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('eco')">← AI Ecosystem</button>
+        <button onclick="go('practice')">Berikutnya: AI in Practice →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 7: AI IN PRACTICE ===== -->
+    <section class="module" id="sec-practice">
+      <div class="breadcrumb"><span>From AI Tools to Teaching Practice</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🎓 From AI Tools to Teaching Practice</h1>
+        <div class="lead">Gambaran pemanfaatan AI sebagai alat bantu guru melalui layar kelas dan refleksi mengenai peran guru.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="points">
+            <div class="point red"><span class="num">1</span><span>Dalam pembelajaran yang saya amati, AI banyak ditampilkan melalui <strong>layar/papan di depan kelas</strong>.</span></div>
+            <div class="point"><span class="num">2</span><span>AI tidak selalu digunakan secara mandiri oleh setiap siswa.</span></div>
+            <div class="point"><span class="num">3</span><span>Penggunaan mandiri memerlukan pertimbangan usia, kemampuan, dan pendampingan.</span></div>
+            <div class="point"><span class="num">4</span><span>Peran guru tetap sentral: memilih, memeriksa, dan membimbing penggunaan AI.</span></div>
+          </div>
+          <div class="video-slot" data-video="practice-1">
+  <span class="ph-icon">🎬</span>
+  <span class="ph-text">AI ditampilkan di layar kelas — video<span class="ph-file">practice-1.mp4</span></span>
+</div>
+        </div>
+        <div class="quote"><strong>Pesan inti:</strong> AI adalah alat bantu guru — bukan pengganti peran pedagogis.</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Bapak/Ibu, salah satu pelajaran yang paling saya ingat adalah bagaimana AI benar-benar hadir di ruang kelas.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Dalam pembelajaran yang saya amati, AI banyak ditampilkan melalui layar/papan di depan kelas.</li><li>AI tidak selalu digunakan secara mandiri oleh setiap siswa.</li><li>Penggunaan mandiri memerlukan pertimbangan usia, kemampuan, dan pendampingan.</li><li>Peran guru tetap sentral: memilih, memeriksa, dan membimbing.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>AI adalah alat bantu guru — bukan pengganti peran pedagogis.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Setelah perkuliahan, saya mengunjungi tiga sekolah untuk melihat praktik langsung.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('math')">← AI Math</button>
+        <button onclick="go('schools')">Berikutnya: 3 Schools →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 8: 3 SCHOOLS ===== -->
+    <section class="module" id="sec-schools">
+      <div class="breadcrumb"><span>Three Schools, Three Contexts</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🏫 Three Schools, Three Contexts</h1>
+        <div class="lead">Kunjungan ke dua SD dan satu SMP terkait Guangxi Normal University.</div>
+      </div>
+      <div class="card">
+        <div class="grid-3">
+          <div class="school-card">
+            <div class="photo-slot" data-photo="school-1">
+              <span class="ph-icon">🏫</span>
+              <span class="ph-text">Foto SD Pedesaan<span class="ph-file">school-1.jpg</span></span>
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">SD Pedesaan</div>
+              <div class="sc-meta">Wilayah pedesaan · Terkait GXNU</div>
+              <div class="sc-desc">Sekolah dasar di wilayah pedesaan yang saya kunjungi.</div>
+              <div style="margin-top:6px"><span class="badge b-exp" style="font-size:.55rem">Pengalaman Langsung</span></div>
+            </div>
+          </div>
+          <div class="school-card">
+            <div class="photo-slot" data-photo="school-2">
+              <span class="ph-icon">🏙️</span>
+              <span class="ph-text">Foto SD Perkotaan<span class="ph-file">school-2.jpg</span></span>
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">SD Perkotaan</div>
+              <div class="sc-meta">Wilayah perkotaan · Terkait GXNU</div>
+              <div class="sc-desc">Sekolah dasar di kawasan perkotaan yang saya kunjungi.</div>
+              <div style="margin-top:6px"><span class="badge b-exp" style="font-size:.55rem">Pengalaman Langsung</span></div>
+            </div>
+          </div>
+          <div class="school-card">
+            <div class="photo-slot" data-photo="school-3">
+              <span class="ph-icon">🏫</span>
+              <span class="ph-text">Foto SMP<span class="ph-file">school-3.jpg</span></span>
+            </div>
+            <div class="sc-body">
+              <div class="sc-name">SMP</div>
+              <div class="sc-meta">Wilayah perkotaan · Terkait GXNU</div>
+              <div class="sc-desc">Sekolah menengah pertama yang saya kunjungi.</div>
+              <div style="margin-top:6px"><span class="badge b-exp" style="font-size:.55rem">Pengalaman Langsung</span></div>
+            </div>
+          </div>
+        </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Saya mengunjungi tiga sekolah: dua sekolah dasar dan satu sekolah menengah pertama, semuanya terkait dengan Guangxi Normal University.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Satu SD berada di wilayah pedesaan.</li><li>Dua sekolah lainnya berada di kawasan perkotaan.</li><li>Semua sekolah terkait dengan Guangxi Normal University.</li><li>Tujuan kunjungan: mengamati proses pembelajaran, termasuk penggunaan media AI.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Setiap konteks sekolah punya karakter sendiri — saya tidak menggeneralisasi.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Mari kita lihat lebih dekat apa yang saya amati di dalam kelas.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('practice')">← AI in Practice</button>
+        <button onclick="go('class')">Berikutnya: Classroom →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 9: CLASSROOM — 2 foto full width ===== -->
+    <section class="module" id="sec-class">
+      <div class="breadcrumb"><span>What I Observed in the Classroom</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>📚 What I Observed in the Classroom</h1>
+        <div class="lead">Aktivitas siswa, peran guru, media, serta perbedaan yang saya amati antara sekolah yang dikunjungi.</div>
+      </div>
+      <div class="card">
+        <div class="points" style="margin-bottom:12px">
+          <div class="point green"><span class="num">1</span><span>Siswa di sekolah perkotaan yang saya kunjungi tampak lebih tenang, mengikuti penjelasan, menulis, dan menjalankan instruksi.</span></div>
+          <div class="point gold"><span class="num">2</span><span>Di sekolah pedesaan yang saya kunjungi, beberapa siswa tampak kurang fokus atau melakukan aktivitas lain.</span></div>
+          <div class="point blue"><span class="num">3</span><span>Penekanan kuat pada matematika dan IPA dalam pembelajaran yang saya amati.</span></div>
+        </div>
+        <div class="grid-photo-2">
+  <div class="video-slot" data-video="class-1">
+    <span class="ph-icon">🎬</span>
+    <span class="ph-text">Aktivitas siswa — perkotaan (video)<span class="ph-file">class-1.mp4</span></span>
+  </div>
+  <div class="video-slot" data-video="class-2">
+    <span class="ph-icon">🎬</span>
+    <span class="ph-text">Aktivitas siswa — pedesaan (video)<span class="ph-file">class-2.mp4</span></span>
+  </div>
+</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Di dalam kelas, saya melihat beberapa perbedaan yang menarik antara sekolah yang saya kunjungi.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Siswa di sekolah perkotaan tampak lebih tenang, mengikuti penjelasan, menulis, dan menjalankan instruksi.</li><li>Di sekolah pedesaan, beberapa siswa tampak kurang fokus atau melakukan aktivitas lain.</li><li>Ada penekanan kuat pada matematika dan IPA dalam pembelajaran yang saya amati.</li><li>Pengamatan ini terbatas pada sekolah yang dikunjungi.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Saya tidak menyimpulkan bahwa mata pelajaran lain dikesampingkan secara nasional tanpa bukti kurikulum yang valid.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Selain siswa, saya juga mengamati bagaimana guru bekerja sama.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('schools')">← 3 Schools</button>
+        <button onclick="go('lesson')">Berikutnya: Lesson Study →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 10: LESSON STUDY ===== -->
+    <section class="module" id="sec-lesson">
+      <div class="breadcrumb"><span>Teacher Collaboration & Lesson Study</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🤝 Teacher Collaboration and Lesson Study</h1>
+        <div class="lead">Observasi pembelajaran lintas mata pelajaran dan refleksi tentang pengembangan profesional guru.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="points">
+            <div class="point"><span class="num">1</span><span>Praktik lesson study atau observasi pembelajaran melibatkan guru lintas mata pelajaran.</span></div>
+            <div class="point"><span class="num">2</span><span>Kesan saya: guru memiliki waktu untuk pengembangan profesional, dan waktu itu dimanfaatkan.</span></div>
+            <div class="point"><span class="num">3</span><span>Kolaborasi lintas mata pelajaran membuka perspektif tentang praktik pembelajaran.</span></div>
+          </div>
+          <div class="photo-slot" data-photo="lesson-1">
+            <span class="ph-icon">🤝</span>
+            <span class="ph-text">Kegiatan lesson study / observasi guru<span class="ph-file">lesson-1.jpg</span></span>
+          </div>
+        </div>
+        <h3 style="margin-top:14px">📸 Dokumentasi Kolaborasi</h3>
+        <div class="grid-photo-2">
+          <div class="photo-slot" data-photo="lesson-2">
+            <span class="ph-icon">👥</span>
+            <span class="ph-text">Diskusi guru<span class="ph-file">lesson-2.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="lesson-3">
+            <span class="ph-icon">📋</span>
+            <span class="ph-text">Observasi kelas<span class="ph-file">lesson-3.jpg</span></span>
+          </div>
+        </div>
+        <div class="quote" style="margin-top:10px"><strong>Refleksi:</strong> budaya observasi dan refleksi bersama layak menjadi bahan pertimbangan untuk sekolah di Indonesia.</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Satu hal yang membuat saya kagum adalah budaya kolaborasi guru di sekolah-sekolah yang saya kunjungi.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Praktik lesson study atau observasi pembelajaran melibatkan guru lintas mata pelajaran.</li><li>Guru memiliki waktu untuk pengembangan profesional.</li><li>Waktu tersebut dimanfaatkan dengan baik.</li><li>Kolaborasi membuka perspektif tentang praktik pembelajaran.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Budaya observasi dan refleksi bersama layak menjadi bahan pertimbangan untuk sekolah di Indonesia.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Tapi ada satu hal yang ingin saya refleksikan lebih dalam: hubungan antara ketertiban dan pembelajaran.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('class')">← Classroom</button>
+        <button onclick="go('order')">Berikutnya: Order & Learning →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11: ORDER ===== -->
+    <section class="module" id="sec-order">
+      <div class="breadcrumb"><span>Order, Attention, and Learning</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🔍 Order, Attention, and Learning</h1>
+        <div class="lead">Refleksi atas perbedaan perilaku siswa yang saya amati, dengan membedakan ketertiban dan keterlibatan kognitif.</div>
+      </div>
+      <div class="card">
+        <div class="points">
+          <div class="point gold"><span class="num">1</span><span>Ketertiban yang terlihat tidak selalu identik dengan keterlibatan kognitif siswa.</span></div>
+          <div class="point"><span class="num">2</span><span>Kelas yang tenang belum tentu kelas yang berpikir aktif.</span></div>
+          <div class="point"><span class="num">3</span><span>Kelas yang tampak kurang fokus belum tentu tidak belajar.</span></div>
+          <div class="point red"><span class="num">4</span><span>Pertanyaan reflektif: bagaimana kita mengukur keterlibatan berpikir, bukan hanya ketertiban permukaan?</span></div>
+        </div>
+        <div class="quote"><strong>Pesan inti:</strong> jangan terburu-buru menyimpulkan dari tampilan permukaan kelas.</div>
+        <div><span class="badge b-exp">Pengalaman Langsung</span><span class="badge b-lit">Interpretasi/Refleksi</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Bapak/Ibu, saya ingin mengajak kita semua merenung sejenak tentang apa yang kita lihat di kelas.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Ketertiban yang terlihat tidak selalu identik dengan keterlibatan kognitif siswa.</li><li>Kelas yang tenang belum tentu kelas yang berpikir aktif.</li><li>Kelas yang tampak kurang fokus belum tentu tidak belajar.</li><li>Pertanyaan reflektif: bagaimana kita mengukur keterlibatan berpikir, bukan hanya ketertiban permukaan?</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Jangan terburu-buru menyimpulkan dari tampilan permukaan kelas.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Dari refleksi ini, saya ingin mengajak Bapak/Ibu memikirkan apa yang bisa kita pertimbangkan di Indonesia.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('lesson')">← Lesson Study</button>
+        <button onclick="go('indo')">Berikutnya: For Indonesia →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 12: INDONESIA ===== -->
+    <section class="module" id="sec-indo">
+      <div class="breadcrumb"><span>What Can Indonesia Learn?</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🇮🇩 What Can Indonesia Learn?</h1>
+        <div class="lead">Gagasan yang dapat dipertimbangkan oleh guru Indonesia tanpa menyalin sistem negara lain secara mentah.</div>
+      </div>
+      <div class="card">
+        <div class="grid-3">
+          <div class="mini-card red"><h4>1. AI untuk Ide Media</h4><p>Gunakan AI untuk memperluas ide media pembelajaran, dengan verifikasi oleh guru.</p></div>
+          <div class="mini-card gold"><h4>2. Kegiatan Berpikir</h4><p>Rancang kegiatan yang mendorong siswa menjelaskan alasan dan memeriksa jawaban, bukan hanya memperoleh hasil.</p></div>
+          <div class="mini-card green"><h4>3. Budaya Observasi</h4><p>Kembangkan budaya observasi dan refleksi pembelajaran bersama rekan guru.</p></div>
+        </div>
+        <div><span class="badge b-lit">Interpretasi/Refleksi</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Saya tidak akan menyarankan untuk menyalin sistem pendidikan China. Tetapi ada beberapa gagasan yang bisa kita pertimbangkan.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Gunakan AI untuk memperluas ide media pembelajaran, dengan verifikasi oleh guru.</li><li>Rancang kegiatan yang mendorong siswa menjelaskan alasan dan memeriksa jawaban.</li><li>Kembangkan budaya observasi dan refleksi pembelajaran bersama rekan guru.</li><li>Setiap praktik perlu disesuaikan dengan konteks sekolah.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Ini rekomendasi reflektif, bukan klaim bahwa pendekatan tertentu pasti lebih unggul.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Satu prinsip yang saya pegang kuat setelah perjalanan ini adalah tentang peran AI dalam pendidikan.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('order')">← Order & Learning</button>
+        <button onclick="go('ai')">Berikutnya: AI & Thinking →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 13: AI & THINKING ===== -->
+    <section class="module" id="sec-ai">
+      <div class="breadcrumb"><span>AI Should Support Human Thinking</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>💡 AI Should Support Human Thinking</h1>
+        <div class="lead">Tiga prinsip: AI membantu kreasi, siswa tetap berpikir, dan guru memeriksa serta membimbing.</div>
+      </div>
+      <div class="card">
+        <div class="points">
+          <div class="point red"><span class="num">1</span><span><strong>AI membantu kreasi</strong> — memperluas gagasan dan kreativitas manusia, bukan menggantikannya.</span></div>
+          <div class="point gold"><span class="num">2</span><span><strong>Siswa tetap berpikir</strong> — pemahaman konsep dan proses berpikir tidak boleh diambil alih AI.</span></div>
+          <div class="point green"><span class="num">3</span><span><strong>Guru memeriksa dan membimbing</strong> — guru memverifikasi akurasi, kesesuaian pedagogis, dan etika penggunaan.</span></div>
+        </div>
+        <div class="quote" style="background:#eafaf0;border-color:#2E7D32;color:#1e5b3a"><strong>Pesan utama:</strong> yang terpenting bukan sekadar menggunakan AI, melainkan memastikan AI membantu siswa belajar — bukan mengambil alih proses belajarnya.</div>
+        <div><span class="badge b-lit">Interpretasi/Refleksi</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Bapak/Ibu, salah satu pelajaran yang paling saya ingat adalah bagaimana kita memandang AI dalam proses pembelajaran.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>AI membantu guru mengembangkan ide dan media.</li><li>Dalam pembelajaran yang saya amati, AI banyak ditampilkan melalui layar kelas.</li><li>Penggunaan mandiri oleh siswa memerlukan pertimbangan usia, kemampuan, dan pendampingan.</li><li>AI tidak menggantikan pemahaman konsep dan proses berpikir siswa.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Yang terpenting bukan sekadar menggunakan AI, melainkan memastikan AI membantu siswa belajar, bukan mengambil alih proses belajarnya.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Dari prinsip ini, saya ingin menutup dengan refleksi pribadi saya sebagai guru matematika.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('indo')">← For Indonesia</button>
+        <button onclick="go('reflect')">Berikutnya: My Reflection →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 14: MY REFLECTION ===== -->
+    <section class="module" id="sec-reflect">
+      <div class="breadcrumb"><span>My Reflection as a Mathematics Teacher</span> <span class="dur">⏱ ≈ 2 menit</span></div>
+      <div class="page-head">
+        <h1>🧑‍🏫 My Reflection as a Mathematics Teacher</h1>
+        <div class="lead">Hubungan pengalaman China dengan peran saya sebagai guru matematika dan peneliti pendidikan.</div>
+      </div>
+      <div class="card">
+        <div class="grid-2">
+          <div class="photo-slot" data-photo="reflect-1">
+            <span class="ph-icon">🧑‍🏫</span>
+            <span class="ph-text">Foto bersama / refleksi akhir / sertifikat<span class="ph-file">reflect-1.jpg</span></span>
+          </div>
+          <div class="points">
+            <div class="point"><span class="num">1</span><span>Pengalaman internasional memperluas cara pandang, tetapi tidak berarti semua praktik dari negara lain dapat diterapkan langsung di Indonesia.</span></div>
+            <div class="point"><span class="num">2</span><span>Ketertiban yang terlihat tidak selalu identik dengan keterlibatan kognitif.</span></div>
+            <div class="point"><span class="num">3</span><span>Pendidikan tidak hanya berkaitan dengan teknologi, tetapi juga manusia, kebijakan, budaya, dan proses belajar.</span></div>
+            <div class="point"><span class="num">4</span><span>Saya pulang bukan dengan jawaban untuk semua persoalan pendidikan, tetapi dengan pertanyaan dan perspektif baru.</span></div>
+          </div>
+        </div>
+        <h3 style="margin-top:14px">📸 Galeri Penutup</h3>
+        <div class="grid-photo-full">
+          <div class="photo-slot" data-photo="reflect-2">
+            <span class="ph-icon">👥</span>
+            <span class="ph-text">Foto bersama<span class="ph-file">reflect-2.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="reflect-3">
+            <span class="ph-icon">🏛️</span>
+            <span class="ph-text">Kampus GXNU<span class="ph-file">reflect-3.jpg</span></span>
+          </div>
+          <div class="photo-slot" data-photo="reflect-4">
+            <span class="ph-icon">🎓</span>
+            <span class="ph-text">Sertifikat<span class="ph-file">reflect-4.jpg</span></span>
+          </div>
+        </div>
+        <div><span class="badge b-lit">Interpretasi/Refleksi</span></div>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Sebagai guru matematika, perjalanan ini mengubah beberapa cara pandang saya.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Pengalaman internasional memperluas cara pandang, tetapi tidak berarti semua praktik bisa diterapkan langsung.</li><li>Ketertiban yang terlihat tidak selalu identik dengan keterlibatan kognitif.</li><li>Pendidikan bukan hanya tentang teknologi, tetapi juga manusia, kebijakan, budaya, dan proses belajar.</li><li>Saya pulang bukan dengan jawaban untuk semua persoalan, tetapi dengan pertanyaan dan perspektif baru.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Justru pertanyaan-pertanyaan baru inilah yang membuat saya ingin terus belajar.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Izinkan saya menutup dengan tiga pesan utama yang ingin saya bagikan.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('ai')">← AI & Thinking</button>
+        <button onclick="go('closing')">Berikutnya: Takeaways →</button>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 15: CLOSING ===== -->
+    <section class="module" id="sec-closing">
+      <div class="breadcrumb"><span>Takeaways & Closing</span> <span class="dur">⏱ ≈ 1.5 menit</span></div>
+      <div class="cover-hero" style="gap:0">
+        <span class="cover-tag" style="background:var(--red)">TAKEAWAYS · CLOSING</span>
+        <h2 class="cover-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);line-height:1.2;color:var(--primary-deep);margin-top:14px">Three Things to <span class="accent">Remember</span></h2>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;max-width:760px">
+          <div class="point"><span class="num" style="background:var(--red)">1</span><span>Kita tidak harus menyalin seluruh sistem pendidikan negara lain untuk belajar darinya.</span></div>
+          <div class="point"><span class="num" style="background:var(--accent)">2</span><span>Teknologi boleh berkembang, tetapi manusia tetap menjadi pusat pendidikan.</span></div>
+          <div class="point"><span class="num" style="background:#2E7D32">3</span><span>AI seharusnya memperluas kemampuan kita berpikir dan berkarya, bukan menggantikan proses yang membuat kita menjadi manusia pembelajar.</span></div>
+        </div>
+        <p style="margin-top:22px;font-style:italic;color:var(--red);font-size:clamp(.9rem,1.2vw,1rem);max-width:700px;font-family:Georgia,serif;line-height:1.5">
+          "Ambil inspirasi, kritisilah, dan sesuaikan dengan kebutuhan siswa kita sendiri."
+        </p>
+        <p style="margin-top:18px;color:var(--text-soft);font-size:.84rem">Terima kasih — mari berdiskusi. · Rachmita Aulia Mekatronika Arifin, S.Pd</p>
+      </div>
+      <div class="notes-toggle"><button class="btn-notes" onclick="toggleNotes(this)">💬 Catatan Presenter</button></div>
+      <div class="speaker-notes">
+        <div class="nsec"><span class="nlab">Pembuka</span><p>Bapak/Ibu, izinkan saya menutup presentasi ini dengan tiga pesan utama.</p></div>
+        <div class="nsec"><span class="nlab">Pengingat Cerita</span><ul><li>Kita tidak harus menyalin seluruh sistem pendidikan negara lain untuk belajar darinya.</li><li>Teknologi boleh berkembang, tetapi manusia tetap menjadi pusat pendidikan.</li><li>AI seharusnya memperluas kemampuan kita berpikir dan berkarya, bukan menggantikannya.</li></ul></div>
+        <div class="nsec emphasis"><span class="nlab">Pesan Utama</span><p>Ambil inspirasi, kritisilah, dan sesuaikan dengan kebutuhan siswa kita sendiri.</p></div>
+        <div class="nsec transition"><span class="nlab">Transisi</span><p>Terima kasih atas perhatian Bapak/Ibu. Saya membuka ruang diskusi dan pertanyaan.</p></div>
+      </div>
+      <div class="pager">
+        <button onclick="go('reflect')">← My Reflection</button>
+        <button onclick="go('cover')">↑ Back to Cover</button>
+      </div>
+    </section>
+
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.67%"></div></div>
+    <div class="footer">Journey to China 2026 · Summer School Camp · Guangxi Normal University · 15 slides · Presenter: Rachmita Aulia Mekatronika Arifin, S.Pd</div>
+  </main>
+</div>
+
+<button class="topbtn" id="topBtn" onclick="document.getElementById('content').scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ===== AUTO-LOAD FOTO ===== */
+const PHOTO_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'];
+const PHOTO_FOLDER = 'dokumentasi/';
+
+function tryLoadPhoto(slot) {
+  const key = slot.getAttribute('data-photo');
+  if (!key) return;
+  const img = new Image();
+  let extIndex = 0;
+
+  img.onload = function() {
+    const oldImg = slot.querySelector('img');
+    if (oldImg) oldImg.remove();
+    img.alt = 'Dokumentasi ' + key;
+    slot.appendChild(img);
+    slot.classList.add('has-photo');
+    slot.querySelectorAll('.ph-icon,.ph-text').forEach(el => el.style.display = 'none');
+  };
+
+  img.onerror = function() {
+    extIndex++;
+    if (extIndex < PHOTO_EXTENSIONS.length) {
+      img.src = `${PHOTO_FOLDER}${key}.${PHOTO_EXTENSIONS[extIndex]}`;
+    }
+  };
+
+  img.src = `${PHOTO_FOLDER}${key}.${PHOTO_EXTENSIONS[0]}`;
+}
+
+function loadAllPhotos() {
+  document.querySelectorAll('.photo-slot[data-photo]').forEach(tryLoadPhoto);
+}
+/* ============================================================
+   AUTO-LOAD VIDEO dari folder dokumentasi/
+   ============================================================ */
+const VIDEO_EXTENSIONS = ['mp4', 'mov', 'webm', 'MP4', 'MOV', 'WEBM'];
+const VIDEO_FOLDER = 'dokumentasi/';
+
+function tryLoadVideo(slot) {
+  const key = slot.getAttribute('data-video');
+  if (!key) return;
+  const video = document.createElement('video');
+  video.controls = true;
+  video.muted = true;
+  video.playsInline = true;
+  video.preload = 'metadata';
+  video.loop = false;
+  let extIndex = 0;
+
+  function tryNextSrc() {
+    extIndex++;
+    if (extIndex >= VIDEO_EXTENSIONS.length) {
+      // Semua ekstensi gagal — biarkan placeholder
+      console.warn(`✗ Video tidak ditemukan: ${VIDEO_FOLDER}${key}.*`);
+      return;
+    }
+    video.src = `${VIDEO_FOLDER}${key}.${VIDEO_EXTENSIONS[extIndex]}`;
+  }
+
+  video.onloadedmetadata = function() {
+    const oldVideo = slot.querySelector('video');
+    if (oldVideo) oldVideo.remove();
+    video.alt = 'Video ' + key;
+    slot.appendChild(video);
+    slot.classList.add('has-video');
+    console.log(`✓ Video dimuat: ${VIDEO_FOLDER}${key}.${VIDEO_EXTENSIONS[extIndex]}`);
+  };
+
+  video.onerror = tryNextSrc;
+
+  video.src = `${VIDEO_FOLDER}${key}.${VIDEO_EXTENSIONS[0]}`;
+}
+
+function loadAllVideos() {
+  document.querySelectorAll('.video-slot[data-video]').forEach(tryLoadVideo);
+}
+/* ===== NAVIGATION ===== */
+const ORDER=["cover","why","days","lang","eco","math","practice","schools","class","lesson","order","indo","ai","reflect","closing"];
+let currentIdx=0;
+function go(mod){
+  document.querySelectorAll(".module").forEach(m=>m.classList.remove("active"));
+  document.getElementById("sec-"+mod).classList.add("active");
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.toggle("active",n.dataset.mod===mod));
+  document.querySelectorAll(".mnav-item").forEach(n=>n.classList.toggle("on",n.dataset.mod===mod));
+  document.querySelector(".sidebar").classList.remove("open");
+  currentIdx=ORDER.indexOf(mod);
+  document.getElementById("progressFill").style.width=((currentIdx+1)/ORDER.length*100)+"%";
+  document.getElementById("content").scrollTo({top:0,behavior:"smooth"});
+  setTimeout(loadAllPhotos, 100);
+}
+document.querySelectorAll(".nav-item,.mnav-item").forEach(n=>n.addEventListener("click",()=>go(n.dataset.mod)));
+
+/* ===== KEYBOARD ===== */
+document.addEventListener("keydown",e=>{
+  const tag=e.target.tagName.toLowerCase();
+  if(tag==="input"||tag==="textarea"||tag==="select")return;
+  if(e.key==="ArrowRight"&&currentIdx<ORDER.length-1)go(ORDER[currentIdx+1]);
+  else if(e.key==="ArrowLeft"&&currentIdx>0)go(ORDER[currentIdx-1]);
+  else if(e.key==="Home")go(ORDER[0]);
+  else if(e.key==="End")go(ORDER[ORDER.length-1]);
+  else if(e.key==="p"||e.key==="P")togglePresenterMode();
+  else if(e.key==="n"||e.key==="N"){
+    const active=document.querySelector(".module.active");
+    const btn=active?active.querySelector(".btn-notes"):null;
+    if(btn)toggleNotes(btn);
+  }
+  else if(e.key==="f"||e.key==="F")toggleFullscreen();
+});
+
+/* ===== NOTES ===== */
+function toggleNotes(btn){
+  const notes=btn.closest(".module").querySelector(".speaker-notes");
+  if(!notes)return;
+  notes.classList.toggle("show");
+  btn.textContent=notes.classList.contains("show")?"🙈 Sembunyikan Catatan":"💬 Catatan Presenter";
+}
+
+/* ===== PRESENTER MODE ===== */
+let pmode=false;
+function togglePresenterMode(){
+  pmode=!pmode;
+  document.body.classList.toggle("presenter-mode",pmode);
+  const btn=document.getElementById("pmodeBtn");
+  btn.classList.toggle("active",pmode);
+  btn.textContent=pmode?"🎭 Mode Presenter: ON":"🎭 Mode Presenter";
+  if(pmode){
+    const active=document.querySelector(".module.active");
+    const notes=active?active.querySelector(".speaker-notes"):null;
+    if(notes&&!notes.classList.contains("show")){
+      notes.classList.add("show");
+      const b=active.querySelector(".btn-notes");
+      if(b)b.textContent="🙈 Sembunyikan Catatan";
+    }
+    toast("Mode presenter aktif");
+  } else {
+    toast("Mode audiens aktif");
+  }
+}
+
+/* ===== FULLSCREEN ===== */
+function toggleFullscreen(){
+  if(!document.fullscreenElement){
+    const el=document.documentElement;
+    (el.requestFullscreen||el.webkitRequestFullscreen).call(el).catch(()=>toast("Fullscreen tidak tersedia"));
+  } else {
+    (document.exitFullscreen||document.webkitExitFullscreen).call(document);
+  }
+}
+
+/* ===== TOAST ===== */
+let toastTimer=null;
+function toast(msg){
+  let t=document.getElementById("__toast");
+  if(!t){
+    t=document.createElement("div");t.id="__toast";
+    t.style.cssText="position:fixed;left:50%;bottom:88px;transform:translateX(-50%) translateY(16px);background:#0D3C66;color:#fff;padding:11px 20px;border-radius:26px;font-size:.86rem;font-weight:600;z-index:200;opacity:0;pointer-events:none;transition:all .3s;max-width:80vw;text-align:center;box-shadow:0 12px 28px -10px rgba(0,0,0,.5)";
+    document.body.appendChild(t);
+  }
+  t.textContent=msg;t.style.opacity="1";t.style.transform="translateX(-50%) translateY(0)";
+  if(toastTimer)clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>{t.style.opacity="0";t.style.transform="translateX(-50%) translateY(16px)";},2600);
+}
+
+/* ===== TOP BUTTON ===== */
+const contentEl=document.getElementById("content");
+const topBtn=document.getElementById("topBtn");
+contentEl.addEventListener("scroll",()=>{topBtn.classList.toggle("show",contentEl.scrollTop>360);});
+
+/* ===== INIT ===== */
+go("cover");
+loadAllPhotos();
+loadAllVideos();
+setTimeout(loadAllPhotos, 500);
+setTimeout(loadAllVideos, 500);
+setTimeout(loadAllPhotos, 1500);
+setTimeout(loadAllVideos, 1500);
+</script>
+</body>
+</html>
